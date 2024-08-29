@@ -1,15 +1,3 @@
-/* Reset box-sizing for consistency across browsers */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Font smoothing for consistent rendering */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 /* MEDIA QUERIES */
 
@@ -57,7 +45,7 @@ body {
   .project-video {
     height: -webkit-fit-content;
     height: -moz-fit-content;
-    height: fit-content; /* Adjust the height as needed */
+    height: auto; 
   }
 
   .project-title {
@@ -148,7 +136,7 @@ body {
   .project-video {
     height: -webkit-fit-content;
     height: -moz-fit-content;
-    height: fit-content; /* Adjust the height as needed */
+    height: auto; /* Adjust the height as needed */
   }
 
   .project-title {

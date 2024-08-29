@@ -285,9 +285,7 @@ section {
 }
 
 .project-grid {
-    display: -webkit-grid;
     display: grid;
-    min-height: 100vh;
     grid-template-columns: repeat(2, 1fr);
 }
 
@@ -299,7 +297,7 @@ section {
 
 .project-video {
     width: 100%;
-    height: fit-content;
+    height: auto;
     object-fit: cover;
     display: block;
     cursor: default;
