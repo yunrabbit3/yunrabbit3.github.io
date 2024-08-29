@@ -205,9 +205,9 @@ a:hover::after {
 
 .menu-links a {
     display: block;
-    padding-top: 55px; /* Adjust padding for better spacing */
+    padding-top: 50px; /* Adjust this value to move the links higher */
     text-align: center; /* Center text horizontally */
-    font-size: 2rem; /* Increase font size for better readability */
+    font-size: 1.5rem; /* Increase font size for better readability */
     color: #ffffff;
     text-decoration: none;
 }

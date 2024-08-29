@@ -1,8 +1,23 @@
+/* Reset box-sizing for consistency across browsers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Font smoothing for consistent rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* MEDIA QUERIES */
 
 /* For screens up to 1400px */
 @media screen and (max-width: 1400px) {
   #desktop-nav {
+    display: -webkit-flex; /* Safari */
+    display: -moz-flex; /* Firefox */
     display: flex;
   }
 }
@@ -10,20 +25,24 @@
 /* For screens up to 1200px */
 @media screen and (max-width: 1200px) {
   #desktop-nav {
+    display: -webkit-flex;
+    display: -moz-flex;
     display: flex;
   }
-  
+
   #profile,
   .section-container {
     display: block;
   }
-  
+
   .arrow {
     display: none;
   }
-  
+
   section,
   .section-container {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
   }
   .section__pic-container {
@@ -36,6 +55,8 @@
     padding-bottom: 7rem; /* Ensure there's some space around */
   }
   .project-video {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content; /* Adjust the height as needed */
   }
 
@@ -50,6 +71,8 @@
     display: none;
   }
   #hamburger-nav {
+    display: -webkit-flex;
+    display: -moz-flex;
     display: flex;
   }
 
@@ -57,57 +80,61 @@
     height: 100vh; /* Full viewport height */
     margin-bottom: 7rem; /* Adjust as needed */
   }
-  
+
   #contact,
   footer {
     height: 40vh;
   }
-  
+
   article {
     font-size: 1rem;
   }
-  
+
   footer nav {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     margin-bottom: 2rem;
   }
-  
+
   .btn-container {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
     flex-wrap: wrap;
   }
-  
+
   .contact-info-container {
     margin: 0;
   }
-  
+
   .contact-info-container p,
   .nav-links li a {
     font-size: 1rem;
   }
-  
+
   .nav-links {
     gap: 0.5rem;
     text-align: center;
   }
-  
+
   .section__pic-container {
     width: auto;
     height: 80vw;
     justify-content: center;
   }
-  
+
   .section__text__p2 {
     font-size: 1.25rem;
   }
-  
+
   .title {
     font-size: 2rem;
   }
-  
+
   .text-container {
     text-align: justify;
   }
-  
+
   /* New rules for project videos */
   #projects {
     padding-top: 5rem; /* Ensure there's some space around */
@@ -119,12 +146,12 @@
   }
 
   .project-video {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content; /* Adjust the height as needed */
   }
 
   .project-title {
     font-size: 2.5rem; /* Adjust the title font size for smaller screens */
   }
-
 }
-
