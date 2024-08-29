@@ -1,27 +1,24 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
     <nav id="desktop-nav">
       <div class="logo">Seokhyun Son</div>
-        <ul class="nav-links">
-          <li><a href="#profile">Profile</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <ul class="nav-links">
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
     <nav id="hamburger-nav">
-      <div class="logo">Portfolio</div>
+      <div class="logo" onclick="scrollToTop()">Seokhyun Son</div>
       <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
+        <div class="hamburger-icon">
           <span></span>
           <span></span>
           <span></span>
@@ -40,77 +37,83 @@
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Seokhyun Son</h1>
-        <p class="section__text__p2">Video editor</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
+        <p class="section__text__p2" id="typewriter">
+          <span id="typewriter-text"></span>
+        </p>
       </div>
     </section>
+
     <!-- About Section Removed -->
     <!-- Experience Section Removed -->
     <section id="projects">
-      <p class="section__text__p1">Explore My</p>
       <h1 class="title">Projects</h1>
       <div class="project-grid">
-        <div class="project">
-          <video class="project-video" data-url="http://example.com/project1" data-name="Project 1" autoplay loop muted>
-            <source src="path/to/video1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="project-title">SAGAMI 0.01</div>
-        </div>
-        <div class="project">
-          <video class="project-video" data-url="http://example.com/project2" data-name="Project 2" autoplay loop muted>
-            <source src="path/to/video2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="project-title">REMINISCENCE</div>
-        </div>
-        <div class="project">
-          <video class="project-video" data-url="http://example.com/project3" data-name="Project 3" autoplay loop muted>
-            <source src="path/to/video3.mp4" type="video/mp4">
+        <div class="project" onclick="playVideo('https://www.youtube.com/watch?v=ohCgTw7APNU')">
+          <video class="project-video" autoplay loop muted>
+            <source src="path/to/video1.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div class="project-title">COLLAPSE</div>
         </div>
-        <div class="project">
-          <video class="project-video" data-url="http://example.com/project4" data-name="Project 4" autoplay loop muted>
-            <source src="path/to/video4.mp4" type="video/mp4">
+        <div class="project" onclick="playVideo('https://www.youtube.com/watch?v=F-Yz_ZEid8Q')">
+          <video class="project-video" autoplay loop muted>
+            <source src="path/to/video2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="project-title">SAGAMI 0.01</div>
+        </div>
+        <div class="project" onclick="playVideo('https://www.youtube.com/watch?v=y6yG1LGfJ-Y')">
+          <video class="project-video" autoplay loop muted>
+            <source src="path/to/video3.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="project-title">REMINISCENCE</div>
+        </div>
+        <div class="project" onclick="playVideo('http://example.com/project4')">
+          <video class="project-video" autoplay loop muted>
+            <source src="path/to/video4.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div class="project-title">SÜSS</div>
         </div>
+        <div class="project" onclick="window.open('https://www.instagram.com/reel/C7jUdE6CPhA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank')">
+          <video class="project-video" autoplay loop muted>
+            <source src="path/to/video6.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="project-title">WALK IN PARIS</div>
+        </div>        
+        <div class="project" onclick="window.open('https://www.instagram.com/reel/C74S6dgCmFT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==')">
+          <video class="project-video" autoplay loop muted>
+            <source src="path/to/video7.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="project-title">WALK IN PARIS</div>
+        </div>
       </div>
     </section>
 
+    <!-- Modal structure -->
+    <div class="video-modal" id="video-modal">
+      <div class="video-modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <div class="video-description" id="video-description"></div>
+        <iframe id="video-frame" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
     <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
+      <h1 class="title">Contact</h1>
       <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:seokhyunson3@gmail.com">seokhyunson3@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/seokhyun-son-418141236/">LinkedIn</a></p>
-        </div>
+        <p>
+          <a href="mailto:seokhyunson3@gmail.com" class="contact-link"
+            >seokhyunson3@gmail.com</a
+          >
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/seokhyun-son-418141236/" class="contact-link"
+            >LinkedIn</a
+          >
+        </p>
       </div>
     </section>
     <footer>

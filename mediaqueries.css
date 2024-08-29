@@ -5,15 +5,11 @@
   #desktop-nav {
     display: flex;
   }
-  
 }
 
 /* For screens up to 1200px */
 @media screen and (max-width: 1200px) {
   #desktop-nav {
-    display: none;
-  }
-  #hamburger-nav {
     display: flex;
   }
   
@@ -30,28 +26,41 @@
   .section-container {
     height: fit-content;
   }
-  
-  section {
-    margin: 0 5%;
-  }
-  
   .section__pic-container {
-    width: 500px;
-    height: 500px;
+    width: 520px;
+    height: 520px;
     margin: 0 auto 2rem;
+  }
+  #projects {
+    padding-top: 7rem;
+    padding-bottom: 7rem; /* Ensure there's some space around */
+  }
+  .project-video {
+    height: fit-content; /* Adjust the height as needed */
+  }
+
+  .project-title {
+    font-size: 1.8rem; /* Adjust the title font size for smaller screens */
   }
 }
 
-/* For screens up to 600px */
-@media screen and (max-width: 600px) {
+/* For screens up to 800px */
+@media screen and (max-width: 800px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+  }
+
+  #profile {
+    height: 100vh; /* Full viewport height */
+    margin-bottom: 7rem; /* Adjust as needed */
+  }
+  
   #contact,
   footer {
     height: 40vh;
-  }
-  
-  #profile {
-    height: 83vh;
-    margin-bottom: 0;
   }
   
   article {
@@ -83,7 +92,7 @@
   
   .section__pic-container {
     width: auto;
-    height: 46vw;
+    height: 80vw;
     justify-content: center;
   }
   
@@ -101,19 +110,21 @@
   
   /* New rules for project videos */
   #projects {
-    padding: 1rem; /* Ensure there's some space around */
+    padding-top: 5rem; /* Ensure there's some space around */
   }
 
   .project-grid {
     grid-template-columns: 1fr; /* Stack items in a single column */
-    gap: 1rem; /* Space between items */
+    gap: 0rem; /* Space between items */
   }
 
   .project-video {
-    height: 200px; /* Adjust the height as needed */
+    height: fit-content; /* Adjust the height as needed */
   }
 
   .project-title {
-    font-size: 1.5rem; /* Adjust the title font size for smaller screens */
+    font-size: 2.5rem; /* Adjust the title font size for smaller screens */
   }
+
 }
+
