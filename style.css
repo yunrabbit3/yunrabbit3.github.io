@@ -285,7 +285,9 @@ section {
 }
 
 .project-grid {
+    display: -webkit-grid;
     display: grid;
+    min-height: 100vh;
     grid-template-columns: repeat(2, 1fr);
 }
 
