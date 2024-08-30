@@ -13,7 +13,7 @@ function scrollToTopOnLogoClick() {
   const logo = document.querySelector('.logo');
 
   logo.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
@@ -78,11 +78,13 @@ function handleScroll() {
 
 function checkScreenSize() {
   if (window.innerWidth < 800) {
-    // Add scroll event listener only if screen width is less than 800px
+    // Add scroll and touchmove event listeners if screen width is less than 800px
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('touchmove', handleScroll); // For touch screen scrolling
   } else {
-    // Remove scroll event listener if screen width is 800px or larger
+    // Remove scroll and touchmove event listeners if screen width is 800px or larger
     window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('touchmove', handleScroll); // For touch screen scrolling
     const titles = document.querySelectorAll('.project-title');
     titles.forEach(title => {
       title.style.opacity = ''; // Reset opacity style
