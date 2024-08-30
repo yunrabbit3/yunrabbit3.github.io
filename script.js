@@ -26,20 +26,6 @@ function closeMenuOnLinkClick() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize the logo click scroll-to-top functionality
-  scrollToTopOnLogoClick();
-
-  // Add event listener for the hamburger menu click
-  const hamburgerMenu = document.querySelector('.hamburger-menu');
-  if (hamburgerMenu) {
-    hamburgerMenu.addEventListener('click', toggleMenu);
-  }
-
-  // Initialize the close menu on link click functionality
-  closeMenuOnLinkClick();
-});
-
 function playVideo(url) {
   const modal = document.getElementById('video-modal');
   const iframe = document.getElementById('video-frame');
@@ -75,24 +61,71 @@ function closeModal() {
   iframe.src = '';
 }
 
-// Mouse movement effect on project titles
+function handleScroll() {
+  const titles = document.querySelectorAll('.project-title');
+  titles.forEach(title => {
+    title.style.opacity = '1'; // Show the title on scroll
+  });
+
+  clearTimeout(window.scrollTimeout); // Clear any existing timeout
+
+  window.scrollTimeout = setTimeout(() => {
+    titles.forEach(title => {
+      title.style.opacity = '0'; // Hide the title after scrolling stops
+    });
+  }, 500); // Adjust the timeout as needed
+}
+
+function checkScreenSize() {
+  if (window.innerWidth < 800) {
+    // Add scroll event listener only if screen width is less than 800px
+    window.addEventListener('scroll', handleScroll);
+  } else {
+    // Remove scroll event listener if screen width is 800px or larger
+    window.removeEventListener('scroll', handleScroll);
+    const titles = document.querySelectorAll('.project-title');
+    titles.forEach(title => {
+      title.style.opacity = ''; // Reset opacity style
+    });
+  }
+}
+
+// Initialize project titles on mouse movement
 const projects = document.querySelectorAll('.project');
 projects.forEach(project => {
-    project.addEventListener('mousemove', (e) => {
-        const title = project.querySelector('.project-title');
-        const { left, top, width, height } = project.getBoundingClientRect();
-        const x = e.clientX - left;
-        const y = e.clientY - top;
+  project.addEventListener('mousemove', (e) => {
+    const title = project.querySelector('.project-title');
+    const { left, top, width, height } = project.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
 
-        // Adjust the movement sensitivity
-        const moveX = (x / width - 0.5) * 37; 
-        const moveY = (y / height - 0.5) * 37; 
-        
-        title.style.transform = `translate(-50%, 50%) translate(${moveX}px, ${moveY}px)`;
-    });
+    // Adjust the movement sensitivity
+    const moveX = (x / width - 0.5) * 37; 
+    const moveY = (y / height - 0.5) * 37; 
+    
+    title.style.transform = `translate(-50%, 50%) translate(${moveX}px, ${moveY}px)`;
+  });
 
-    project.addEventListener('mouseleave', () => {
-        const title = project.querySelector('.project-title');
-        title.style.transform = 'translate(-50%, 50%)'; // Reset to original position
-    });
+  project.addEventListener('mouseleave', () => {
+    const title = project.querySelector('.project-title');
+    title.style.transform = 'translate(-50%, 50%)'; // Reset to original position
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize the logo click scroll-to-top functionality
+  scrollToTopOnLogoClick();
+
+  // Add event listener for the hamburger menu click
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', toggleMenu);
+  }
+
+  // Initialize the close menu on link click functionality
+  closeMenuOnLinkClick();
+
+  // Check screen size on load and resize
+  checkScreenSize();
+  window.addEventListener('resize', checkScreenSize);
 });
