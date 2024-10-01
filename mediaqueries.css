@@ -1,4 +1,3 @@
-
 /* MEDIA QUERIES */
 
 /* For screens up to 1400px */
@@ -10,6 +9,7 @@
   }
 }
 
+
 /* For screens up to 1200px */
 @media screen and (max-width: 1200px) {
   #desktop-nav {
@@ -18,38 +18,17 @@
     display: flex;
   }
 
-  #profile,
-  .section-container {
-    display: block;
-  }
-
   .arrow {
     display: none;
   }
 
-  section,
-  .section-container {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .section__pic-container {
-    width: 520px;
-    height: 520px;
-    margin: 0 auto 2rem;
-  }
   #projects {
     padding-top: 7rem;
-    padding-bottom: 7rem; /* Ensure there's some space around */
-  }
-  .project-video {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: auto; 
+    padding-bottom: 7rem;
   }
 
-  .project-title {
-    font-size: 1.8rem; /* Adjust the title font size for smaller screens */
+  .project-video {
+    height: auto;
   }
 }
 
@@ -58,101 +37,71 @@
   #desktop-nav {
     display: none;
   }
+  
   #hamburger-nav {
-    display: -webkit-flex;
-    display: -moz-flex;
     display: flex;
   }
 
   #profile {
-    height: 100vh; /* Full viewport height */
-    margin-bottom: 7rem; /* Adjust as needed */
+    height: 100vh;
   }
 
-  #contact,
-  footer {
-    height: 40vh;
-    padding-top: 10rem;
-    font-size: 0.7rem;
+  #profile .title {
+    font-size: 7rem;
   }
 
-  article {
-    font-size: 1rem;
+  .eye {
+    width: 80px;
+    height: 80px;
+    top: -5px;
+    left: 1px;
   }
 
-  footer nav {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    margin-bottom: 2rem;
+  .iris {
+    width: 50px;
+    height: 50px;
   }
 
-  .btn-container {
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    flex-wrap: wrap;
+  .last-name .line {
+    width: 170px;
+    height: 15px;
+    left: -190px;
+    top: 50%;
   }
 
-  .contact-info-container {
-    margin: 0;
+  #skills {
+    position: relative;
+    z-index: 2;
+    scroll-margin-top: 50px;
   }
 
-  .contact-info-container p,
-  .nav-links li a {
-    font-size: 1rem;
+  .skills-container {
+    margin-top: 200px;
   }
 
-  .nav-links {
-    gap: 0.5rem;
-    text-align: center;
+
+  .skills-title {
+    font-size: 50px;
+    margin-bottom: 20px;
+    z-index: 1;
   }
 
-  .section__pic-container {
-    width: auto;
-    height: 80vw;
-    justify-content: center;
+  .floating-icon {
+    width: 80px;
+    height: 80px;
   }
 
-  .section__text__p2 {
-    font-size: 1.25rem;
+  .icon-1 { top: 150%; left: 15%; filter: drop-shadow(0 0 20px rgba(109, 177, 255, 0.682)); }
+  .icon-2 { top: 300%; right: 20%; filter: drop-shadow(0 0 20px rgba(148, 112, 255, 0.71)); }
+  .icon-4 { bottom: 200%; right: 15%; filter: drop-shadow(0 0 20px rgba(222, 222, 222, 0.727)); }
+  .icon-5 { top: 320%; left: 40%; filter: drop-shadow(0 0 20px rgba(97, 192, 255, 0.767)); }
+  .icon-6 { top: 20%; right: 10%; filter: drop-shadow(0 0 20px rgba(116, 98, 255, 0.745)); }
+  .icon-7 { bottom: 250%; left: 37%; filter: drop-shadow(0 0 20px rgba(112, 99, 255, 0.8)); }
+
+
+  .short-films-title {
+    font-size: 30px;
+    top: 40%; /* Adjust to position between the videos */
   }
 
-  .title {
-    font-size: 2rem;
-  }
-
-  .text-container {
-    text-align: justify;
-  }
-
-  /* New rules for project videos */
-  #projects {
-    padding-top: 5rem; /* Ensure there's some space around */
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr; /* Stack items in a single column */
-    gap: 0rem; /* Space between items */
-  }
-
-  .project-video {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: auto; /* Adjust the height as needed */
-  }
-
-   .project:hover .project-title {
-        opacity: 1;
-    }
-
-    .project-title {
-        opacity: 0;
-        font-size: 2rem;
-        transition: opacity 0.2s ease;
-    }
-    
-    /* Additional styling for glowing effect when visible */
-    .show-title .project-title {
-        opacity: 1;
-    }
 }

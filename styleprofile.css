@@ -56,23 +56,22 @@ html {
 
 /* HAMBURGER MENU */
 #hamburger-nav {
-    display: none;
+    display: none; /* Change this to flex to show the menu */
     position: fixed; /* Make sure the menu is positioned relative to the screen */
     top: 0;
-    left: 0; /* Aligns the hamburger menu to the left side */
+    right: 0; /* Aligns the hamburger menu to the right side */
     height: 10vh;
-    padding-left: 2rem; /* Optional: Adjust padding for spacing */
+    padding-right: 2rem; /* Optional: Adjust padding for spacing */
     z-index: 1001; /* Ensure it sits on top of other elements */
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* Center vertically */
+    justify-content: flex-end; /* Align to the right */
     width: 100%;
-    background-color: black;
+    background-color: black; /* Background color */
 }
 
 .hamburger-menu {
     display: flex;
     align-items: center;
-    padding-right: 3rem; /* This aligns the menu with the original desktop padding */
     cursor: pointer;
 }
 
@@ -82,7 +81,7 @@ html {
     justify-content: center; /* Center vertically */
     height: 15px; /* Increased for better visibility */
     width: 15px;
-    position: relative; /* Ensure spans are positioned relative to this container */
+    position: relative; /* Changed to relative for proper span positioning */
 }
 
 .hamburger-icon span {
@@ -90,8 +89,7 @@ html {
     height: 2px;
     background-color: #ffffff;
     transition: all 0.3s ease-in-out;
-    position: absolute; /* Positioned relative to .hamburger-icon */
-    left: 0;
+    position: relative; /* Changed to relative to position spans correctly */
 }
 
 .hamburger-icon span:nth-child(1) {
@@ -479,7 +477,7 @@ h1 {
 
 /* Short films title */
 .short-films-title {
-    position: absolute;
+    position: relative;
     color: white;
     font-size: 50px;
     z-index: 2;
@@ -487,7 +485,7 @@ h1 {
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
-    top: 30%; /* Adjust to position between the videos */
+    top: 40%; /* Adjust to position between the videos */
 }
 
 /* Video container */

@@ -58,3 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+// JavaScript function to toggle menu visibility
+function toggleMenu() {
+    const menuLinks = document.querySelector('.menu-links');
+    menuLinks.classList.toggle('open'); // This class handles showing/hiding the menu
+}
+
+// Close the menu when a link is clicked
+document.querySelectorAll('.menu-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggleMenu(); // Close the menu when a link is clicked
+    });
+});
