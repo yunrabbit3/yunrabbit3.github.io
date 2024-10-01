@@ -195,7 +195,7 @@ section {
     width: 110px; 
     height: 110px;
     position: relative; 
-    top: -20px; 
+    top: -15px; 
     left: -10px; 
     cursor: default; 
     z-index: 1; /* Above video */
@@ -206,26 +206,23 @@ section {
     width: 60px; 
     height: 60px;
     position: absolute; 
-    transition: transform 0.1s; 
+    transition: top 0.1s, left 0.1s;
     z-index: 2; /* Above the eye container */
 
     /* Set initial position towards the center */
     top: 35%;  /* Center vertically */
     left: 35%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center it on the origin */
-}
-
-/* Use the video to mask the iris */
-.iris {
+    transform: translate(-50%, -50%) translateZ(0);
     mix-blend-mode: multiply; /* Use multiply blend mode */
 }
+
 
 /* Other styles */
 #profile .title {
     color: white;
     text-align: right;
     font-size: 10rem; 
-    font-weight: 300;
+    font-weight: 100;
     line-height: 0.4; 
     position: relative; /* For stacking */
     z-index: 3; /* Above the eye and video */
@@ -367,7 +364,7 @@ section {
     font-size: 50px; /* Increase font size */
     margin-bottom: 20px; /* Add some space below the title */
     z-index: 1; /* Make sure it's above the video */
-    font-weight: 300; 
+    font-weight: 100; 
 }
 
 .floating-icon {
@@ -476,7 +473,7 @@ h1 {
     margin: 0; /* Remove top margin */
     padding-top: 20px; /* Add space below the title */
     z-index: 1; /* Ensure it’s above other elements */
-    font-weight: 300;
+    font-weight: 100;
     text-align: center;
 }
 
@@ -486,7 +483,7 @@ h1 {
     color: white;
     font-size: 50px;
     z-index: 2;
-    font-weight: 300;
+    font-weight: 100;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
@@ -546,7 +543,7 @@ h1 {
 .experimental-title {
     color: white;
     font-size: 32px;
-    font-weight: 300;
+    font-weight: 100;
     text-align: left; /* Ensures the title text is aligned left */
     margin: 0; /* Remove default margins */
     margin-top: -100px;
