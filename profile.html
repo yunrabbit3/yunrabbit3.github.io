@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elio's dream</title>
+    <link rel="stylesheet" href="styleprofile.css">
+</head>
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <nav id="desktop-nav">
+      <ul class="nav-links">
+        <li><a href="#profile">The Dreamer</a></li>
+        <li><a href="#skills">Inventory</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger Navigation for Mobile -->
+    <nav id="hamburger-nav">
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#profile" onclick="toggleMenu()">The Dreamer</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Inventory</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+
+
+    <section id="profile">
+      <div class="section__text">
+          <h1 class="title">
+              <span class="first-name">SEOKHYUN</span> <br>
+              <span class="last-name">
+                  <span class="line"></span>
+                  S<span class="eye-wrapper">
+                      <div class="eye">
+                          <video class="eye-video" autoplay loop muted playsinline>
+                              <source src="eyeball.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                          </video>
+                          <img src="iris.png" class="iris" alt="Iris" />
+                      </div>
+                  </span>N
+              </span>
+          </h1>
+      </div>
+
+      <div class="waves-background">
+        <video class="waves-video" autoplay loop muted playsinline>
+            <source src="waves.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+     </div>
+          
+     
+     <div class="dive-in" id="diveIn">
+      Dive In 
+      <img src="arrow.png" alt="Arrow" class="v-arrow">
+      </div>
+    </section>
+
+
+    <section id="skills">
+      <video autoplay muted loop class="background-video">
+        <source src="bubbles.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="skills-container">
+        <h2 class="skills-title">Inventory</h2>
+            <!-- Add floating icons with the actual file names -->
+            <img src="Icons/Photoshop.png" class="floating-icon icon-1" alt="After Effects">
+            <img src="Icons/AVID.png" class="floating-icon icon-2" alt="AVID">
+            <img src="Icons/Blender.png" class="floating-icon icon-3" alt="Blender">
+            <img src="Icons/C4D.png" class="floating-icon icon-4" alt="Cinema 4D">
+            <img src="Icons/Davinci.png" class="floating-icon icon-5" alt="Davinci Resolve">
+            <img src="Icons/PremierePro.png" class="floating-icon icon-6" alt="Photoshop">
+            <img src="Icons/AfterEffects.png" class="floating-icon icon-7" alt="Premiere Pro">
+      </div>
+    </section>
+
+
+    <section id="projects">
+      <div class="project-section">
+          <h1>Projects</h1> <!-- Main title -->
+          <h2 class="short-films-title">Short Films</h2> <!-- Short Films title -->
+  
+          <div class="video-container">
+              <video class="video video1" autoplay muted loop>
+                  <source src="poster/Collapsefloat.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+              <video class="video video2" autoplay muted loop>
+                  <source src="poster/Pointfloat.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+  
+          <!-- Experimental title -->
+          <!-- Experimental title and video container -->
+        <div class="video3-container">
+          <h2 class="experimental-title">Experimental Videos</h2>
+          <video class="video video3" autoplay muted loop>
+              <source src="videos/TV.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+    </section>
+  
+  
+    
+  <script src="script.js"></script>
+</body>

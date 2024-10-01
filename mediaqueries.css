@@ -147,7 +147,7 @@
 
     .project-title {
         opacity: 0;
-        font-size: 3rem;
+        font-size: 2rem;
         transition: opacity 0.2s ease;
     }
     

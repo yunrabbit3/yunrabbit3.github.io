@@ -1,0 +1,570 @@
+/* PROFILE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+body {
+    font-family: "Londrina Solid", sans-serif;
+    font-weight: 100;
+    background-color: rgb(0, 0, 0);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* DESKTOP NAV */
+
+#desktop-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    height: 10vh;
+    padding: 0 5rem; /* Adds padding to the sides for better spacing */
+    z-index: 1000;
+    justify-content: center;
+    background-color: black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 5rem;
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: -1rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s ease-in-out;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #00ff26; /* Change text color to green on hover */
+}
+
+
+/* HAMBURGER MENU */
+#hamburger-nav {
+    display: none;
+    position: fixed; /* Make sure the menu is positioned relative to the screen */
+    top: 0;
+    left: 0; /* Aligns the hamburger menu to the left side */
+    height: 10vh;
+    padding-left: 2rem; /* Optional: Adjust padding for spacing */
+    z-index: 1001; /* Ensure it sits on top of other elements */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: black;
+}
+
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    padding-right: 3rem; /* This aligns the menu with the original desktop padding */
+    cursor: pointer;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    height: 15px; /* Increased for better visibility */
+    width: 15px;
+    position: relative; /* Ensure spans are positioned relative to this container */
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease-in-out;
+    position: absolute; /* Positioned relative to .hamburger-icon */
+    left: 0;
+}
+
+.hamburger-icon span:nth-child(1) {
+    top: 0; /* Start at the top */
+}
+
+.hamburger-icon span:nth-child(2) {
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for vertical center */
+}
+
+.hamburger-icon span:nth-child(3) {
+    bottom: 0; /* Position at the bottom */
+}
+
+.hamburger-icon:hover span {
+    background-color: #00ff26; /* Change color to green on hover */
+}
+
+.menu-links {
+    display: none; /* Initially hide the menu */
+    position: fixed; /* Make sure the menu covers the whole screen */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height of the viewport */
+    width: 100%; /* Full width of the viewport */
+    background-color: black; /* Background color */
+    color: #00ff26; /* Text color */
+    overflow: hidden; /* Hide any overflowing content */
+    z-index: 1000; /* Ensure it's below the hamburger menu */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    flex-direction: column;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.menu-links.open {
+    display: flex; /* Show the menu when open */
+    opacity: 1; /* Fully opaque */
+    visibility: visible; /* Ensure it's visible */
+}
+
+.menu-links a {
+    display: block;
+    padding-top: 50px; /* Adjust this value to move the links higher */
+    text-align: center; /* Center text horizontally */
+    font-size: 1.5rem; /* Increase font size for better readability */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu-links li {
+    list-style: none;
+}
+
+.menu-links a:hover {
+    color: #00ff26; /* Change text color to green on hover */
+}
+
+/* SECTIONS */
+
+section {
+    padding-top: 7vh;
+    height: 120vh;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+
+/* PROFILE SECTION */
+#profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    height: 100vh;
+    position: relative;
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Video background */
+.eye-video {
+    position: absolute;
+    top: -20px; 
+    left: -25px; 
+    width: 160%; 
+    height: 160%;
+    object-fit: cover; /* Cover the full area */
+    z-index: 0; /* Behind all elements */
+}
+
+
+/* Eye Container */
+.eye {
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+    width: 110px; 
+    height: 110px;
+    position: relative; 
+    top: -20px; 
+    left: -10px; 
+    cursor: default; 
+    z-index: 1; /* Above video */
+}
+
+/* Update iris styles */
+.iris {
+    width: 60px; 
+    height: 60px;
+    position: absolute; 
+    transition: transform 0.1s; 
+    z-index: 2; /* Above the eye container */
+
+    /* Set initial position towards the center */
+    top: 35%;  /* Center vertically */
+    left: 35%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center it on the origin */
+}
+
+/* Use the video to mask the iris */
+.iris {
+    mix-blend-mode: multiply; /* Use multiply blend mode */
+}
+
+/* Other styles */
+#profile .title {
+    color: white;
+    text-align: right;
+    font-size: 10rem; 
+    font-weight: 300;
+    line-height: 0.4; 
+    position: relative; /* For stacking */
+    z-index: 3; /* Above the eye and video */
+}
+
+.first-name,
+.last-name {
+    display: block;
+    margin-right: 0;
+    position: relative; 
+}
+
+/* Line before the last name */
+.last-name .line {
+    content: "";
+    display: block;
+    width: 250px; 
+    height: 15px; 
+    background-color: white; 
+    position: absolute;
+    left: -280px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.last-name {
+    display: inline-block; 
+    position: relative; 
+    z-index: 4; /* Ensure it's above the eye and video */
+}
+
+/* Hover effect for eye animation */
+.eye:hover {
+    animation: eye-blink 0.5s; 
+}
+
+
+/* Waves Video Background */
+.waves-background {
+    position: absolute;
+    bottom: -7vh; /* Move the video slightly down */
+    left: 0;
+    width: 100%;
+    height: 25vh; /* Keep the video taller to prevent cut-off */
+    overflow: hidden; /* Hide overflow */
+    z-index: -1; /* Ensure it's behind all content */
+}
+
+.waves-video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Ensures the video fills the entire container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Keep it behind other elements */
+}
+
+.dive-in {
+    position: absolute; /* Position it absolutely within the profile section */
+    bottom: 70px; /* Adjust the distance from the bottom */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    z-index: 3; /* Ensure it's above the video background */
+    color: white; /* Text color */
+    font-size: 1.7rem; /* Adjust font size as needed */
+    text-align: center; /* Center the text */
+    letter-spacing: 1px; /* Optional: adjust letter spacing */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Add glowing effect on hover */
+.dive-in:hover {
+    color: #ffffff; /* Change text color on hover */
+    filter: drop-shadow(0 0 5px #ffffff)
+}
+
+.v-arrow {
+    display: block; /* Ensure the arrow appears below the text */
+    margin: 5px auto 0; /* Reduce space between the text and the arrow, and center it */
+    width: 30px; /* Adjust size of the arrow */
+    height: auto; /* Keep the aspect ratio of the image */
+    animation: jump 1.5s infinite; /* Apply the jumping animation */
+    transition: filter 0.3s ease; /* Smooth transition for the filter effect */
+}
+
+/* Glowing effect for the arrow */
+.dive-in:hover .v-arrow {
+    filter: drop-shadow(0 0 5px #ffffff); /* Glow effect for the arrow */
+}
+
+/* Define the jumping animation */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0); /* Start and end at the original position */
+    }
+    50% {
+        transform: translateY(-7px); /* Move up by 7px at the midpoint */
+    }
+}
+
+
+#skills {
+    position: relative;
+    overflow: hidden; /* Ensures icons don't overflow outside of the section */
+    z-index: 2; /* Ensure the skills section is above the waves video */
+    scroll-margin-top: 50px; /* Add this to create space above when scrolling */
+    
+}
+
+.skills-container {
+    position: relative;
+    text-align: center;
+    margin-top: 200px; /* Move the section down */
+    z-index: 0; /* Keeps the text above the floating icons */
+}
+
+.background-video {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    min-height: 100%; /* Ensures the video covers the section */
+    min-width: 100%; /* Ensures the video covers the section */
+    z-index: 0; /* Set below the icons */
+    transform: translate(-50%, -50%); /* Center the video and scale it up */
+    opacity: 1; /* Optional: adjust the opacity for a blending effect */
+    object-fit: cover; /* Ensures video covers the entire section without distortion */
+    filter: brightness(3);
+}
+
+
+.skills-title {
+    position: relative; /* Ensures the text is positioned properly */
+    color: white; /* Change text color to white for better contrast */
+    text-align: center; /* Center the title */
+    font-size: 50px; /* Increase font size */
+    margin-bottom: 20px; /* Add some space below the title */
+    z-index: 1; /* Make sure it's above the video */
+    font-weight: 300; 
+}
+
+.floating-icon {
+    position: absolute;
+    width: 80px; /* Adjust the size of the icons */
+    height: 80px;
+    transition: transform 0.2s ease-out; /* Smooth movement */
+}
+
+/* Individual icon positions - Adjusted to be higher */
+.icon-1 {
+    top: 180%;
+    left: 20%;
+    filter: drop-shadow(0 0 20px rgba(109, 177, 255, 0.682)); /* Enhanced PS glow */
+}
+
+.icon-2 {
+    top: 340%;
+    right: 15%;
+    filter: drop-shadow(0 0 20px rgba(148, 112, 255, 0.71)); /* Enhanced avid glow */
+}
+
+.icon-3 {
+    bottom: 115%;
+    left: 10%;
+    filter: drop-shadow(0 0 20px rgba(255, 185, 93, 0.8)); /* Enhanced Blender glow */
+}
+
+.icon-4 {
+    bottom: 160%;
+    right: 10%;
+    filter: drop-shadow(0 0 20px rgba(222, 222, 222, 0.727)); /* Enhanced C4D glow */
+}
+
+.icon-5 {
+    top: 300%;
+    left: 44%;
+    filter: drop-shadow(0 0 20px rgba(97, 192, 255, 0.767)); /* Enhanced DAV glow */
+}
+
+.icon-6 {
+    top: 10%;
+    right: 25%;
+    filter: drop-shadow(0 0 20px rgba(116, 98, 255, 0.745)); /* Enhanced PR glow */
+}
+
+.icon-7 {
+    bottom: 200%;
+    left: 37%;
+    filter: drop-shadow(0 0 20px rgba(112, 99, 255, 0.8)); /* Enhanced AE glow */
+}
+
+/* Keyframes for floating effect */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg); /* Starting position */
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg); /* Midway position (adjusted) */
+    }
+}
+
+/* Apply the float animation to each icon */
+.icon-1 { animation: float 6s ease-in-out infinite; }
+.icon-2 { animation: float 7s ease-in-out infinite; }
+.icon-3 { animation: float 8s ease-in-out infinite; }
+.icon-4 { animation: float 5s ease-in-out infinite; }
+.icon-5 { animation: float 9s ease-in-out infinite; }
+.icon-6 { animation: float 10s ease-in-out infinite; }
+.icon-7 { animation: float 4s ease-in-out infinite; }
+
+
+
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+/* Projects section styling */
+#projects {
+    position: relative;
+    width: 100%;
+    background-color: black; /* Keep background color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 50px; /* Add some space at the top */
+    padding-bottom: 50px; /* Add some space at the bottom */
+}
+
+/* Section header styling */
+h1 {
+    position: relative;
+    color: white;
+    font-size: 36px;
+    margin: 0; /* Remove top margin */
+    padding-top: 20px; /* Add space below the title */
+    z-index: 1; /* Ensure it’s above other elements */
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Short films title */
+.short-films-title {
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    z-index: 2;
+    font-weight: 300;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30%; /* Adjust to position between the videos */
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adds space between title and video */
+}
+
+/* Video styling */
+.video {
+    position: relative;
+    z-index: 0;
+    width: 35%;
+    height: auto;
+    animation: float 7s ease-in-out infinite;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.video:hover {
+    transform: scale(1.05);
+    filter: brightness(1.5);
+}
+
+/* Positioning individual videos */
+.video1 {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+.video2 {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+/* Container for the experimental title and video */
+.video3-container {
+    display: flex;
+    align-items: center; /* Vertically aligns the title and video */
+    gap: 20px; /* Space between the title and video */
+    justify-content: flex-start; /* Keeps the title and video on the left initially */
+    width: 100%; /* Make sure the container spans the full width */
+    margin-left: 10%;
+}
+
+/* Styling for the experimental title */
+.experimental-title {
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+    text-align: left; /* Ensures the title text is aligned left */
+    margin: 0; /* Remove default margins */
+    margin-top: -100px;
+    z-index: 2;
+}
+
+/* Styling for the video */
+.video3 {
+    position: relative;
+    width: 40%; /* Adjust video size relative to container */
+    height: auto;
+    z-index: 0;
+}
+
+
+/* Keyframe animation for floating effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
