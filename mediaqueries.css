@@ -32,8 +32,8 @@
   }
 }
 
-/* For screens up to 800px */
-@media screen and (max-width: 800px) {
+/* For screens up to 700px */
+@media screen and (max-width: 700px) {
   #desktop-nav {
     display: none;
   }
@@ -47,32 +47,40 @@
   }
 
   #profile .title {
-    font-size: 7rem;
+    font-size: 6rem;
   }
 
   .eye {
-    width: 80px;
-    height: 80px;
-    top: -5px;
-    left: 1px;
+    width: 70px;
+    height: 70px;
+    top: 1px;
+    left: 5px;
   }
 
   .iris {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    top: 20%;  /* Center vertically */
+    left: 20%; /* Center horizontally */
   }
 
   .last-name .line {
-    width: 170px;
+    width: 140px;
     height: 15px;
-    left: -190px;
+    left: -160px;
     top: 50%;
   }
+
+    .dive-in {
+      bottom: 100px; /* Adjust the distance from the bottom */
+    }
+
 
   #skills {
     position: relative;
     z-index: 2;
     scroll-margin-top: 50px;
+    margin-bottom: -280px;
   }
 
   .skills-container {
@@ -81,7 +89,7 @@
 
 
   .skills-title {
-    font-size: 50px;
+    font-size: 37px;
     margin-bottom: 20px;
     z-index: 1;
   }
@@ -91,10 +99,10 @@
     height: 80px;
   }
 
-  .icon-1 { top: 150%; left: 15%; filter: drop-shadow(0 0 20px rgba(109, 177, 255, 0.682)); }
-  .icon-2 { top: 300%; right: 20%; filter: drop-shadow(0 0 20px rgba(148, 112, 255, 0.71)); }
+  .icon-1 { top: 150%; left: 12%; filter: drop-shadow(0 0 20px rgba(109, 177, 255, 0.682)); }
+  .icon-2 { top: 300%; right: 15%; filter: drop-shadow(0 0 20px rgba(148, 112, 255, 0.71)); }
   .icon-4 { bottom: 200%; right: 15%; filter: drop-shadow(0 0 20px rgba(222, 222, 222, 0.727)); }
-  .icon-5 { top: 320%; left: 40%; filter: drop-shadow(0 0 20px rgba(97, 192, 255, 0.767)); }
+  .icon-5 { top: 320%; left: 37%; filter: drop-shadow(0 0 20px rgba(97, 192, 255, 0.767)); }
   .icon-6 { top: 20%; right: 10%; filter: drop-shadow(0 0 20px rgba(116, 98, 255, 0.745)); }
   .icon-7 { bottom: 250%; left: 37%; filter: drop-shadow(0 0 20px rgba(112, 99, 255, 0.8)); }
 
@@ -102,6 +110,53 @@
   .short-films-title {
     font-size: 30px;
     top: 40%; /* Adjust to position between the videos */
+    text-shadow: 0 0 10px #000000; 
   }
 
+  .video {
+    width: 45%;
+  }
+
+  .experimental-title {
+    font-size: 30px;
+    text-shadow: 0 0 10px #000000; 
+    left: 30px; /* Moves the element to the left */
+}
+
+
+}
+
+
+/* For screens up to 400px */
+@media screen and (max-width: 400px) {
+  #profile .title {
+    font-size: 5rem;
+  }
+
+  .eye {
+    width: 60px;
+    height: 60px;
+    top: 1px;
+    left: 8px;
+  }
+
+  .iris {
+    width: 35px;
+    height: 35px;
+    top: 20%;  /* Center vertically */
+    left: 20%; /* Center horizontally */
+  }
+
+  .last-name .line {
+    width: 110px;
+    height: 15px;
+    left: -130px;
+    top: 50%;
+  }
+  .experimental-title {
+    font-size: 20px;
+    text-shadow: 0 0 10px #000000; 
+    left: 30px; /* Moves the element to the left */
+    top: -15px;
+  }
 }

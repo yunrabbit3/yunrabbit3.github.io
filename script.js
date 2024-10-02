@@ -60,6 +60,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the Skills link from the hamburger menu
+    const skillsLink = document.querySelector('#hamburger-nav a[href="#skills"]'); // Target the link in the hamburger menu
+
+    if (skillsLink) {
+        skillsLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                const offset = 100; // Adjust this value for how much to scroll up from the section
+
+                const topPosition = skillsSection.getBoundingClientRect().top + window.scrollY - offset;
+
+                // Smooth scroll to the target position
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth' // Smooth scroll effect
+                });
+
+            }
+        });
+    }
+});
+
+
+
 
 // JavaScript function to toggle menu visibility
 function toggleMenu() {
