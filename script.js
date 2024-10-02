@@ -1,12 +1,3 @@
-// Wait until the entire page (including images, scripts, etc.) is fully loaded
-window.onload = function() {
-    // Hide the loading screen
-    document.getElementById('loading').style.display = 'none';
-    
-    // Show the main content
-    document.body.style.visibility = 'visible';
-};
-
 
 
 document.addEventListener('mousemove', (event) => {
