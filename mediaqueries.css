@@ -120,7 +120,6 @@
   .experimental-title {
     font-size: 30px;
     text-shadow: 0 0 10px #000000; 
-    left: 50px; /* Moves the element to the left */
   }
 
   .commercials-title {
@@ -131,7 +130,6 @@
     width: 40%; /* Keep a balanced size for experimental video */
     height: auto;
     position: relative; /* To position the title over it */
-    margin-right: 50px;
   }
 
 
@@ -170,7 +168,6 @@
   }
   .experimental-title {
     font-size: 20px;
-    left: 20px;
     text-shadow: 0 0 10px #000000; 
   }
 

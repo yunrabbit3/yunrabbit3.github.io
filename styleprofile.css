@@ -517,8 +517,8 @@ h1 {
 .experimental-title,
 .commercials-title {
     position: relative;
-    color: white;
-    font-size: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
     z-index: 2;
     font-weight: 100;
     text-align: center;
@@ -533,7 +533,6 @@ h1 {
     justify-content: center;
     width: 100%;
     gap: 20px;
-    margin-bottom: 50px;
 }
 
 /* Specific for Short Films - Center title between videos */
@@ -582,16 +581,14 @@ h1 {
     width: 40%; /* Keep a balanced size for experimental video */
     height: auto;
     position: relative; /* To position the title over it */
-    margin-right: 100px;
 }
 
 /* Experimental title positioning */
 .experimental-title {
     position: absolute;
-    top: 50%;
-    margin-right: 55%;
+    top: 0%;
     transform: translateY(-50%); /* Perfect vertical centering */
-    font-size: 60px; /* Slightly smaller to fit nicely */
+    font-size: 40px; /* Slightly smaller to fit nicely */
     z-index: 2; /* Ensure it is above the video */
 }
 
@@ -600,9 +597,10 @@ h1 {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: flex-end; /* Aligns the video to the right */
+    justify-content: center; /* Aligns the video to the right */
     align-items: center;
     margin-bottom: 50px; /* Add space below */
+    margin-top: 70px;
 }
 
 /* Video container for ads section */
