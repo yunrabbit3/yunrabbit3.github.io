@@ -168,8 +168,6 @@ section {
 
 
 
-
-
 /* PROFILE SECTION */
 #profile {
     display: flex;
@@ -336,6 +334,8 @@ section {
     overflow: hidden; /* Ensures icons don't overflow outside of the section */
     z-index: 2; /* Ensure the skills section is above the waves video */
     scroll-margin-top: 50px; /* Add this to create space above when scrolling */
+    height: auto;
+    min-height: 50rem;
     
 }
 
@@ -372,11 +372,35 @@ section {
     font-weight: 100; 
 }
 
+.skills-container {
+    position: relative; /* To contain absolutely positioned elements */
+}
+
 .floating-icon {
     position: absolute;
     width: 80px; /* Adjust the size of the icons */
     height: 80px;
     transition: transform 0.2s ease-out; /* Smooth movement */
+    z-index: 2;
+}
+
+.floating-icon img {
+    width: 100%; /* Ensures the image fills the parent div */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 80px; /* Ensures the image does not exceed the set size */
+}
+
+.icon-name {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 80px; /* Adjust based on your layout */
+    left: 50%; /* Center align */
+    transform: translateX(-50%); /* Center text under the icon */
+    color: white; /* Text color */
+    font-size: 14px; /* Font size */
+    text-align: center; /* Center text */
+    opacity: 0.8; /* Slightly transparent */
+    transition: opacity 0.3s ease; /* Smooth transition */
 }
 
 /* Individual icon positions - Adjusted to be higher */
@@ -389,7 +413,7 @@ section {
 .icon-2 {
     top: 340%;
     right: 15%;
-    filter: drop-shadow(0 0 20px rgba(148, 112, 255, 0.71)); /* Enhanced avid glow */
+    filter: drop-shadow(0 0 20px rgba(148, 112, 255, 0.71)); /* Enhanced Avid glow */
 }
 
 .icon-3 {
@@ -441,7 +465,11 @@ section {
 .icon-6 { animation: float 10s ease-in-out infinite; }
 .icon-7 { animation: float 4s ease-in-out infinite; }
 
-
+/* Show icon name on hover */
+.floating-icon:hover .icon-name {
+    display: block; /* Show the icon name */
+    opacity: 1; /* Make it fully opaque */
+}
 
 
 
@@ -524,6 +552,7 @@ h1 {
     height: auto;
     animation: float 7s ease-in-out infinite;
     transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
 }
 
 .video:hover {
@@ -601,7 +630,7 @@ h1 {
     height: auto;
     border-radius: 10px;
     margin-left: auto; /* Push video5 to the right side */
-    margin-top: -100px;
+    margin-top: -80px;
 }
 
 /* Walkinparis2 (below video5) */
@@ -610,7 +639,80 @@ h1 {
     height: auto;
     border-radius: 10px;
     margin-left: auto;
-    margin-top: -120px; /* Adds space between video5 and video6 */
+    margin-top: -100px; /* Adds space between video5 and video6 */
+}
+
+body.modal-open {
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.video-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.video-modal-content {
+    position: relative;
+    margin: 15% auto; /* Centered modal */
+    padding: 0;
+    width: 80%; /* Could be more or less, depending on screen size */
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly different background for the content */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    padding-bottom: 20px; /* Space for description */
+}
+
+.close {
+    position: absolute;
+    right: 32px;  /* Distance from the right */
+    top: 32px;    /* Distance from the top */
+    width: 32px;  /* Width of the close button */
+    height: 32px; /* Height of the close button */
+    opacity: 0.3; /* Initial opacity */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 1002; /* Ensure it's above other content */
+}
+
+.close:hover {
+    opacity: 1; /* Fully opaque on hover */
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 15px; /* Center the lines */
+    content: ' ';
+    height: 33px; /* Length of the lines */
+    width: 2px;   /* Thickness of the lines */
+    background-color: #fff; /* Color of the lines */
+}
+
+.close:before {
+    transform: rotate(45deg); /* First line at 45 degrees */
+}
+
+.close:after {
+    transform: rotate(-45deg); /* Second line at -45 degrees */
+}
+
+
+#video-frame {
+    width: 100%;
+    height: 400px; /* Set a height for the video */
+}
+
+.video-description {
+    color: white; /* Text color for the description */
+    padding: 10px 20px; /* Padding around the description */
+    font-size: 16px; /* Font size for the description */
+    text-align: left; /* Center the description text */
+    margin-top: 10px; /* Space above the description */
 }
 
 
@@ -649,4 +751,19 @@ h1 {
 
 .contact-list a:hover {
     color: #00ff15; /* Darker color on hover */
+}
+
+
+
+/* FOOTER SECTION */
+
+footer {
+    height: 6vh;
+    margin: 0 1rem;
+}
+
+footer p {
+    text-align: center;
+    color: #00ff26;
+    padding: 2rem;
 }

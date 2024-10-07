@@ -62,6 +62,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+function toggleIconName(iconName) {
+    const icons = document.querySelectorAll('.floating-icon');
+    icons.forEach(icon => {
+        const nameSpan = icon.querySelector('.icon-name');
+        // Hide all icon names first
+        nameSpan.style.display = 'none';
+    });
+
+    // Find the icon with the matching name and show it
+    const selectedIcon = [...icons].find(icon => icon.querySelector('.icon-name').innerText === iconName);
+    if (selectedIcon) {
+        const nameSpan = selectedIcon.querySelector('.icon-name');
+        nameSpan.style.display = 'block';
+    }
+}
+
+// Optional: Hide the icon name when the mouse leaves
+const icons = document.querySelectorAll('.floating-icon');
+icons.forEach(icon => {
+    icon.addEventListener('mouseleave', () => {
+        const nameSpan = icon.querySelector('.icon-name');
+        nameSpan.style.display = 'none';
+    });
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Select the Skills link from the hamburger menu
     const skillsLink = document.querySelector('#hamburger-nav a[href="#skills"]'); // Target the link in the hamburger menu
@@ -102,3 +129,67 @@ document.querySelectorAll('.menu-links a').forEach(link => {
         toggleMenu(); // Close the menu when a link is clicked
     });
 });
+
+
+
+function playVideo(videoUrl) {
+    const modal = document.getElementById('video-modal');
+    const videoFrame = document.getElementById('video-frame');
+    const videoTitle = document.getElementById('video-title');
+    const videoDescription = document.getElementById('video-description');
+
+    // Set the iframe source to the YouTube link
+    videoFrame.src = videoUrl.replace("watch?v=", "embed/");
+
+ // Customize title and description based on video
+switch(videoUrl) {
+    case 'https://www.youtube.com/watch?v=ohCgTw7APNU':
+        videoTitle.innerText = "Collapse";
+        videoDescription.innerText = "Editing the tension between the city and nature through the emotions of a mother.\n\nKey Techniques: Rushes, synchronization, dolly experimentation, editing.";
+        break;
+    case 'https://www.youtube.com/watch?v=Z9q_mGblbTM':
+        videoTitle.innerText = "Point";
+        videoDescription.innerText = "Exploring the complex emotions of a man in a relationship.\n\nKey Techniques: Rushes, synchronization, editing.";
+        break;
+    case 'https://www.youtube.com/watch?v=y6yG1LGfJ-Y':
+        videoTitle.innerText = "Reminiscence";
+        videoDescription.innerText = "Experimenting with the interplay of dreams and memories.\n\nKey Techniques: 3D environment creation and modeling in Cinema 4D, virtual camera animation, visual element assembly, special effects and transitions in After Effects, sound editing and processing in Premiere Pro.";
+        break;
+    case 'https://www.youtube.com/watch?v=F-Yz_ZEid8Q':
+        videoTitle.innerText = "Sagami";
+        videoDescription.innerText = "Commercial for a Japanese condom, emphasizing teamwork in pre-production.\n\nKey Techniques: Development of creative briefs and concept presentations, speed transitions, motion matching, chroma keying, color correction, post-synchronization, sound design, and mixing.";
+        break;
+    case 'https://www.youtube.com/watch?v=example2':
+        videoTitle.innerText = "Walk in Paris 1";
+        videoDescription.innerText = "A visual stroll through the enchanting streets of Paris.\n\nKey Techniques: Ambient soundscapes, capturing street life, use of natural light.";
+        break;
+    case 'https://www.youtube.com/watch?v=example3':
+        videoTitle.innerText = "Walk in Paris 2";
+        videoDescription.innerText = "Continuing our journey in Paris, this segment captures the city's vibrant life and stunning architecture.\n\nKey Techniques: Drone footage, time-lapse photography, and color grading.";
+        break;
+    default:
+        videoTitle.innerText = "Watch this video";
+        videoDescription.innerText = "A brief description of this video.";
+        break;
+}
+
+
+    // Show the modal
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open'); // Add class to prevent scrolling
+}
+
+function closeModal(event) {
+    const modal = document.getElementById('video-modal');
+    const videoFrame = document.getElementById('video-frame');
+
+    // Clear the iframe source to stop the video
+    videoFrame.src = "";
+
+    // Hide the modal
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open'); // Remove class to allow scrolling
+}
+
+
+

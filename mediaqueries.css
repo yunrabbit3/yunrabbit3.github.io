@@ -23,8 +23,8 @@
   }
 
   #projects {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .project-video {
@@ -120,8 +120,19 @@
   .experimental-title {
     font-size: 30px;
     text-shadow: 0 0 10px #000000; 
-    left: 30px; /* Moves the element to the left */
-}
+    left: 50px; /* Moves the element to the left */
+  }
+
+  .commercials-title {
+    font-size: 30px;
+  }
+
+  .video3 {
+    width: 40%; /* Keep a balanced size for experimental video */
+    height: auto;
+    position: relative; /* To position the title over it */
+    margin-right: 50px;
+  }
 
 
 }
@@ -153,10 +164,18 @@
     left: -130px;
     top: 50%;
   }
+
+  .short-films-title {
+    font-size: 20px;
+  }
   .experimental-title {
     font-size: 20px;
+    left: 20px;
     text-shadow: 0 0 10px #000000; 
-    left: 30px; /* Moves the element to the left */
-    top: -15px;
+  }
+
+  .commercials-title {
+    font-size: 20px;
+    top: -20px;
   }
 }

@@ -38,6 +38,7 @@
     </nav>
 
     <main>
+        
         <section id="profile">
             <div class="section__text">
                 <h1 class="title">
@@ -76,15 +77,39 @@
                 Your browser does not support the video tag.
             </video>
             <div class="skills-container">
-                <h2 class="skills-title">Inventory</h2>
-                <img src="Icons/Photoshop.png" class="floating-icon icon-1" alt="Photoshop">
-                <img src="Icons/AVID.png" class="floating-icon icon-2" alt="AVID">
-                <img src="Icons/Blender.png" class="floating-icon icon-3" alt="Blender">
-                <img src="Icons/C4D.png" class="floating-icon icon-4" alt="Cinema 4D">
-                <img src="Icons/Davinci.png" class="floating-icon icon-5" alt="Davinci Resolve">
-                <img src="Icons/PremierePro.png" class="floating-icon icon-6" alt="Premiere Pro">
-                <img src="Icons/AfterEffects.png" class="floating-icon icon-7" alt="After Effects">
-            </div>
+                <div class="skills-container">
+                    <h2 class="skills-title">Inventory</h2>
+                    <div class="floating-icon icon-1" onclick="toggleIconName('Photoshop')">
+                        <img src="Icons/Photoshop.png" alt="Photoshop">
+                        <span class="icon-name">Photoshop</span>
+                    </div>
+                    <div class="floating-icon icon-2" onclick="toggleIconName('AVID')">
+                        <img src="Icons/AVID.png" alt="AVID">
+                        <span class="icon-name">AVID</span>
+                    </div>
+                    <div class="floating-icon icon-3" onclick="toggleIconName('Blender')">
+                        <img src="Icons/Blender.png" alt="Blender">
+                        <span class="icon-name">Blender</span>
+                    </div>
+                    <div class="floating-icon icon-4" onclick="toggleIconName('Cinema 4D')">
+                        <img src="Icons/C4D.png" alt="Cinema 4D">
+                        <span class="icon-name">Cinema 4D</span>
+                    </div>
+                    <div class="floating-icon icon-5" onclick="toggleIconName('Davinci Resolve')">
+                        <img src="Icons/Davinci.png" alt="Davinci Resolve">
+                        <span class="icon-name">Davinci Resolve</span>
+                    </div>
+                    <div class="floating-icon icon-6" onclick="toggleIconName('Premiere Pro')">
+                        <img src="Icons/PremierePro.png" alt="Premiere Pro">
+                        <span class="icon-name">Premiere Pro</span>
+                    </div>
+                    <div class="floating-icon icon-7" onclick="toggleIconName('After Effects')">
+                        <img src="Icons/AfterEffects.png" alt="After Effects">
+                        <span class="icon-name">After Effects</span>
+                    </div>
+                </div>
+                
+
         </section>
 
         <section id="projects">
@@ -93,12 +118,12 @@
         
                 <!-- Short Films Section with Centered Title -->
                 <div class="short-films-container">
-                    <video class="video video1" autoplay muted loop playsinline>
+                    <video class="video video1" onclick="playVideo('https://www.youtube.com/watch?v=ohCgTw7APNU')" autoplay muted loop playsinline>
                         <source src="videos/collapsefloat.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <h2 class="short-films-title">Short Films</h2>
-                    <video class="video video2" autoplay muted loop playsinline>
+                    <video class="video video2" onclick="playVideo('https://www.youtube.com/watch?v=Z9q_mGblbTM')" autoplay muted loop playsinline>
                         <source src="videos/Pointfloat.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -107,7 +132,7 @@
                 <!-- Experimental Section with Left-Centered Title -->
                 <div class="video3-container">
                     <h2 class="experimental-title">Experimental</h2>
-                    <video class="video video3" autoplay muted loop playsinline>
+                    <video class="video video3" onclick="playVideo('https://www.youtube.com/watch?v=y6yG1LGfJ-Y')" autoplay muted loop playsinline>
                         <source src="videos/TV.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -116,25 +141,25 @@
                 <!-- Commercials Section -->
                 <h2 class="commercials-title">Commercials</h2>
                 <div class="video-container-ads">
-                    <video class="video video4" autoplay muted loop playsinline>
+                    <video class="video video4" onclick="playVideo('https://www.youtube.com/watch?v=F-Yz_ZEid8Q')" autoplay muted loop playsinline>
                         <source src="videos/holosagami.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <!-- Walkinparis1 video -->
-                    <video class="video video5" autoplay muted loop playsinline>
+                    <video class="video video5" onclick="window.open('https://www.instagram.com/reel/C7jUdE6CPhA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank')" autoplay muted loop playsinline>
                         <source src="videos/Walkinparis1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-
+        
                     <!-- Walkinparis2 video -->
-                    <video class="video video6" autoplay muted loop playsinline>
+                    <video class="video video6" onclick="window.open('https://www.instagram.com/reel/C74S6dgCmFT/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==')" autoplay muted loop playsinline>
                         <source src="videos/Walkinparis2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </section>
-        
+         
 
 
         <section id="contact">
@@ -146,7 +171,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="mailto:eliossh7@gmail.com">
+                    <a href="mailto:seokhyunson3@gmail.com">
                         Email
                     </a>
                 </li>
@@ -158,17 +183,23 @@
             </ul>
         </section>
 
-
-
+        <!-- Modal structure -->
+        <div class="video-modal" id="video-modal" onclick="closeModal(event)">
+            <span class="close" onclick="closeModal(event)"></span>
+            <div class="video-modal-content" onclick="event.stopPropagation()">
+                <div class="video-title" id="video-title"></div>
+                <iframe id="video-frame" frameborder="0" allowfullscreen></iframe>
+                <div class="video-description" id="video-description"></div>
+            </div>
+        </div>
 
 
     </main>
 
     <footer>
-        <!-- Add footer content here -->
-        <p>&copy; 2024 Elio's Dream. All rights reserved.</p>
+        <p>Designed and developed by Seokhyun Son</p>
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
