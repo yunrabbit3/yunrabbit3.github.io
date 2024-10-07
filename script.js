@@ -1,5 +1,4 @@
-
-
+// Function to follow the mouse
 document.addEventListener('mousemove', (event) => {
     const eye = document.querySelector('.eye');
     const iris = document.querySelector('.iris');
@@ -15,15 +14,48 @@ document.addEventListener('mousemove', (event) => {
 
     // Calculate the angle and distance between the mouse and the eye's center
     const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
-    const distance = Math.min(eyeRect.width / 3, Math.hypot(mouseX - eyeCenterX, mouseY - eyeCenterY)); // Increase range
+    const distance = Math.min(eyeRect.width / 3, Math.hypot(mouseX - eyeCenterX, mouseY - eyeCenterY));
 
     // Calculate the new iris position
     const irisX = Math.cos(angle) * distance;
     const irisY = Math.sin(angle) * distance;
 
-    // Move the iris
-    iris.style.transform = `translate(${irisX}px, ${irisY}px)`; // No additional offset
+    // Move the iris with optimized speed for Safari
+    iris.style.transition = "transform 0.01s linear"; // Smoother and slightly faster response
+    iris.style.transform = `translate(${irisX}px, ${irisY}px)`;
 });
+
+// Random movement function for touch devices
+function getRandomPosition(max) {
+    return Math.floor(Math.random() * max); // Generate a random number within a given max range
+}
+
+function moveIrisRandomly() {
+    const iris = document.querySelector('.iris');
+    const eye = document.querySelector('.eye');
+
+    // Randomize the iris position within the eye's boundaries
+    const eyeRect = eye.getBoundingClientRect();
+    const maxMoveX = eyeRect.width / 4;
+    const maxMoveY = eyeRect.height / 4;
+
+    const randomX = getRandomPosition(maxMoveX * 2) - maxMoveX;
+    const randomY = getRandomPosition(maxMoveY * 2) - maxMoveY;
+
+    iris.style.transition = "transform 1.5s ease";
+    iris.style.transform = `translate(${randomX}px, ${randomY}px)`;
+}
+
+// Check if the device is a touch device
+function isTouchDevice() {
+    return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+}
+
+// Activate random movement on touch devices
+if (isTouchDevice()) {
+    setInterval(moveIrisRandomly, 2000); // Move the iris randomly every 2 seconds
+}
+
 
 
 
@@ -157,17 +189,8 @@ switch(videoUrl) {
         break;
     case 'https://www.youtube.com/watch?v=F-Yz_ZEid8Q':
         videoTitle.innerText = "Sagami";
-        videoDescription.innerText = "Commercial for a Japanese condom, emphasizing teamwork in pre-production.\n\nKey Techniques: Development of creative briefs and concept presentations, speed transitions, motion matching, chroma keying, color correction, post-synchronization, sound design, and mixing.";
+        videoDescription.innerText = "Commercial for a Japanese condom.\n\nKey Techniques: Transitions, motion matching, chroma keying, color correction, sound design, and mixing.";
         break;
-    case 'https://www.youtube.com/watch?v=example2':
-        videoTitle.innerText = "Walk in Paris 1";
-        videoDescription.innerText = "A visual stroll through the enchanting streets of Paris.\n\nKey Techniques: Ambient soundscapes, capturing street life, use of natural light.";
-        break;
-    case 'https://www.youtube.com/watch?v=example3':
-        videoTitle.innerText = "Walk in Paris 2";
-        videoDescription.innerText = "Continuing our journey in Paris, this segment captures the city's vibrant life and stunning architecture.\n\nKey Techniques: Drone footage, time-lapse photography, and color grading.";
-        break;
-    default:
         videoTitle.innerText = "Watch this video";
         videoDescription.innerText = "A brief description of this video.";
         break;

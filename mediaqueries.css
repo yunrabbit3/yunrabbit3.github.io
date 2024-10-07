@@ -78,7 +78,7 @@
 
   #skills {
     position: relative;
-    z-index: 2;
+    z-index: 0;
     scroll-margin-top: 50px;
     margin-bottom: -280px;
   }
