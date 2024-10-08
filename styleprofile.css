@@ -33,7 +33,7 @@ html {
     width: 100%;
     align-items: center;
     height: 10vh;
-    padding: 0 5rem; /* Adds padding to the sides for better spacing */
+    padding: 0 5rem; /* Add padding to the sides for better spacing */
     z-index: 1000;
     justify-content: center;
     background-color: rgb(0, 0, 0);
@@ -86,14 +86,15 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
-    height: 15px; /* Increased for better visibility */
-    width: 15px;
+    height: 20px; /* Increased for better visibility */
+    width: 20px;
     position: relative; /* Changed to relative for proper span positioning */
+    cursor: pointer;
 }
 
 .hamburger-icon span {
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: #ffffff;
     transition: all 0.3s ease-in-out;
     position: relative; /* Changed to relative to position spans correctly */
@@ -116,45 +117,49 @@ html {
     background-color: #00ff26; /* Change color to green on hover */
 }
 
+
+
 .menu-links {
-    display: none; /* Initially hide the menu */
-    position: fixed; /* Make sure the menu covers the whole screen */
+    display: none; /* Initially hidden */
+    position: fixed; /* Cover the whole screen */
     top: 0;
     left: 0;
-    height: 100vh; /* Full height of the viewport */
-    width: 100%; /* Full width of the viewport */
+    height: 100vh; /* Full height */
+    width: 100%; /* Full width */
     background-color: black; /* Background color */
     color: #00ff26; /* Text color */
-    overflow: hidden; /* Hide any overflowing content */
-    z-index: 1000; /* Ensure it's below the hamburger menu */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    flex-direction: column;
+    overflow: hidden; /* Hide overflow */
+    z-index: 1000; /* Above other content */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-direction: column; /* Stack items vertically */
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .menu-links.open {
     display: flex; /* Show the menu when open */
-    opacity: 1; /* Fully opaque */
-    visibility: visible; /* Ensure it's visible */
 }
+
+
 
 .menu-links a {
     display: block;
-    padding-top: 50px; /* Adjust this value to move the links higher */
+    padding: 20px 0; /* Vertical padding for spacing */
     text-align: center; /* Center text horizontally */
     font-size: 1.5rem; /* Increase font size for better readability */
-    color: #ffffff;
-    text-decoration: none;
+    color: #ffffff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .menu-links li {
-    list-style: none;
+    list-style: none; /* Remove bullet points */
 }
 
 .menu-links a:hover {
     color: #00ff26; /* Change text color to green on hover */
 }
+
 
 /* SECTIONS */
 
@@ -398,7 +403,7 @@ section {
     left: 50%; /* Center align */
     transform: translateX(-50%); /* Center text under the icon */
     color: white; /* Text color */
-    font-size: 14px; /* Font size */
+    font-size: 15px; /* Font size */
     text-align: center; /* Center text */
     opacity: 0.8; /* Slightly transparent */
     transition: opacity 0.3s ease; /* Smooth transition */
@@ -721,6 +726,10 @@ body.modal-open {
     padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically if needed */
 }
 
 .contact-title {
@@ -748,19 +757,21 @@ body.modal-open {
     transition: color 0.3s; /* Smooth color transition */
 }
 
-.contact-list a:hover {
-    color: #00ff15; /* Darker color on hover */
+.contact-list a:hover,
+.location-item:hover span {
+    color: #00ff15; /* Apply the hover effect to the span when the location-item is hovered */
 }
 
 
-/* Location styling */
 .location-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-top: 70px; /* Adjust this to move it down */
     text-align: center;
-    width: 100%; /* Ensure it's centered within its container */
+    width: auto; /* Remove width limitation */
+    margin-left: auto;
+    margin-right: auto; /* Center the element horizontally */
 }
 
 .location-icon {

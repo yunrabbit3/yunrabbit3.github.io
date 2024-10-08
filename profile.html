@@ -20,22 +20,25 @@
         </ul>
     </nav>
 
+    
     <!-- Hamburger Navigation for Mobile -->
     <nav id="hamburger-nav">
-        <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="menu-toggle"> <!-- This is the hamburger button -->
             <div class="hamburger-icon">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="menu-links"> <!-- Use ul for menu links -->
-                <li><a href="#profile" onclick="toggleMenu()">The Dreamer</a></li>
-                <li><a href="#skills" onclick="toggleMenu()">Inventory</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </ul>
         </div>
+        <ul class="menu-links"> <!-- Use ul for menu links -->
+            <li><a href="#profile" onclick="toggleMenu()">The Dreamer</a></li>
+            <li><a href="#skills" onclick="toggleMenu()">Inventory</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            <li class="close" onclick="toggleMenu()"></li> <!-- Close button -->
+        </ul>
     </nav>
+
 
     <main>
         
@@ -182,10 +185,13 @@
                 </li>
             </ul>
             <!-- Location outside of the contact list -->
-            <div class="location-item">
-                <img src="image/pin.png" alt="Location Pin" class="location-icon">
-                <span>Montréal, QC</span>
-            </div>
+            <a href="https://www.google.com/maps?q=Montréal,QC" target="_blank" rel="noopener noreferrer">
+                <div class="location-item">
+                    <img src="image/pin.png" alt="Location Pin" class="location-icon">
+                    <span>Montréal, QC</span>
+                </div>
+            </a>
+
         </section>
 
         <!-- Modal structure -->
@@ -202,7 +208,7 @@
     </main>
 
     <footer>
-        <p>Designed and developed by Seokhyun Son</p>
+        <p>© 2024 Designed and developed by Seokhyun Son</p>
     </footer>
 
     

@@ -121,30 +121,34 @@ icons.forEach(icon => {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Select the Skills link from the hamburger menu
-    const skillsLink = document.querySelector('#hamburger-nav a[href="#skills"]'); // Target the link in the hamburger menu
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle'); // Hamburger button
+    const menuLinks = document.querySelector('.menu-links'); // Menu links
 
-    if (skillsLink) {
-        skillsLink.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor click behavior
+    // Function to toggle the menu
+    menuToggle.addEventListener('click', () => {
+        menuLinks.classList.toggle('open'); // Toggle the 'open' class
+    });
 
-            const skillsSection = document.getElementById('skills');
-            if (skillsSection) {
-                const offset = 100; // Adjust this value for how much to scroll up from the section
-
-                const topPosition = skillsSection.getBoundingClientRect().top + window.scrollY - offset;
-
-                // Smooth scroll to the target position
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth' // Smooth scroll effect
-                });
-
-            }
+    // Close the menu when a link is clicked
+    const links = menuLinks.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menuLinks.classList.remove('open'); // Remove 'open' class to close the menu
         });
-    }
+    });
+
+    // Close the menu when clicking outside of the links
+    document.addEventListener('click', (event) => {
+        if (!menuToggle.contains(event.target) && !menuLinks.contains(event.target)) {
+            menuLinks.classList.remove('open'); // Close the menu if clicked outside
+        }
+    });
 });
+
+
+
+
 
 
 
