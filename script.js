@@ -179,6 +179,10 @@ function playVideo(videoUrl) {
 
  // Customize title and description based on video
 switch(videoUrl) {
+    case 'https://www.youtube.com/watch?v=oTMq5K4umRs':
+        videoTitle.innerText = "Showreel";
+        videoDescription.innerText = "A collection of projects I edited.\n\n Music by Creepy Nuts";
+        break;
     case 'https://www.youtube.com/watch?v=ohCgTw7APNU':
         videoTitle.innerText = "Collapse";
         videoDescription.innerText = "Editing the tension between the city and nature through the emotions of a mother.\n\nKey Techniques: Rushes, synchronization, dolly experimentation, editing.";
