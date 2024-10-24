@@ -360,9 +360,9 @@ section {
     min-width: 100%; /* Ensures the video covers the section */
     z-index: 0; /* Set below the icons */
     transform: translate(-50%, -50%); /* Center the video and scale it up */
-    opacity: 1; /* Optional: adjust the opacity for a blending effect */
+    opacity: 50%; /* Optional: adjust the opacity for a blending effect */
     object-fit: cover; /* Ensures video covers the entire section without distortion */
-    filter: brightness(3);
+    filter: brightness(1);
 }
 
 
@@ -373,7 +373,7 @@ section {
     font-size: 50px; /* Increase font size */
     margin-bottom: 20px; /* Add some space below the title */
     z-index: 1; /* Make sure it's above the video */
-    font-weight: 100; 
+    font-weight: 300; 
 }
 
 .skills-container {
@@ -488,23 +488,21 @@ section {
     margin: 0 auto; /* Ensure the section is centered */
     z-index: 2;
     max-height: 40vh;
+    cursor: pointer;
   }
   
   .showreel-container {
     width: 80%; /* Controls the width of the video */
+    max-height: 100%; 
   }
   
   .showreel-video {
     width: 100%; /* Ensures the video fills the container */
-    height: auto;
+    height: auto; /* Adjust this if you want to set a fixed height */
+    max-height: 100%; /* Prevents the video from exceeding the container height */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .showreel-video:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    filter: brightness(1.7);
-  }
-  
+}
+
   /* Adjusting spacing between sections */
   #skills, #projects {
     margin-bottom: 20px;
@@ -547,7 +545,7 @@ h1 {
     margin: 0;
     padding-top: 20px;
     z-index: 1;
-    font-weight: 100;
+    font-weight: 300;
     text-align: center;
 }
 

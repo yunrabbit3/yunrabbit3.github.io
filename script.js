@@ -174,40 +174,45 @@ function playVideo(videoUrl) {
     const videoTitle = document.getElementById('video-title');
     const videoDescription = document.getElementById('video-description');
 
-    // Set the iframe source to the YouTube link
-    videoFrame.src = videoUrl.replace("watch?v=", "embed/");
+    // Set the iframe source based on the video URL
+    if (videoUrl.includes('vimeo.com')) {
+        videoFrame.src = videoUrl; // Directly set the Vimeo URL
+    } else {
+        // Handle YouTube as a fallback
+        videoFrame.src = videoUrl.replace("watch?v=", "embed/");
+    }
 
- // Customize title and description based on video
-switch(videoUrl) {
-    case 'https://www.youtube.com/watch?v=oTMq5K4umRs':
-        videoTitle.innerText = "Showreel";
-        videoDescription.innerText = "A collection of projects I edited.\n\n Music by Creepy Nuts";
-        break;
-    case 'https://www.youtube.com/watch?v=ohCgTw7APNU':
-        videoTitle.innerText = "Collapse";
-        videoDescription.innerText = "Editing the tension between the city and nature through the emotions of a mother.\n\nKey Techniques: Rushes, synchronization, dolly experimentation, editing.";
-        break;
-    case 'https://www.youtube.com/watch?v=Z9q_mGblbTM':
-        videoTitle.innerText = "Point";
-        videoDescription.innerText = "Exploring the complex emotions of a man in a relationship.\n\nKey Techniques: Rushes, synchronization, editing.";
-        break;
-    case 'https://www.youtube.com/watch?v=y6yG1LGfJ-Y':
-        videoTitle.innerText = "Reminiscence";
-        videoDescription.innerText = "Experimenting with the interplay of dreams and memories.\n\nKey Techniques: 3D environment creation and modeling in Cinema 4D, virtual camera animation, visual element assembly, special effects and transitions in After Effects, sound editing and processing in Premiere Pro.";
-        break;
-    case 'https://www.youtube.com/watch?v=F-Yz_ZEid8Q':
-        videoTitle.innerText = "Sagami";
-        videoDescription.innerText = "Commercial for a Japanese condom.\n\nKey Techniques: Transitions, motion matching, chroma keying, color correction, sound design, and mixing.";
-        break;
-        videoTitle.innerText = "Watch this video";
-        videoDescription.innerText = "A brief description of this video.";
-        break;
-}
-
+    // Customize title and description based on video
+    switch(videoUrl) {
+        case 'https://player.vimeo.com/video/1022714426':
+            videoTitle.innerText = "Showreel";
+            videoDescription.innerText = "A collection of projects I edited.\n\nMusic by Creepy Nuts";
+            break;
+        case 'https://www.youtube.com/watch?v=ohCgTw7APNU':
+            videoTitle.innerText = "Collapse";
+            videoDescription.innerText = "Editing the tension between the city and nature through the emotions of a mother.\n\nKey Techniques: Rushes, synchronization, dolly experimentation, editing.";
+            break;
+        case 'https://www.youtube.com/watch?v=Z9q_mGblbTM':
+            videoTitle.innerText = "Point";
+            videoDescription.innerText = "Exploring the complex emotions of a man in a relationship.\n\nKey Techniques: Rushes, synchronization, editing.";
+            break;
+        case 'https://www.youtube.com/watch?v=y6yG1LGfJ-Y':
+            videoTitle.innerText = "Reminiscence";
+            videoDescription.innerText = "Experimenting with the interplay of dreams and memories.\n\nKey Techniques: 3D environment creation and modeling in Cinema 4D, virtual camera animation, visual element assembly, special effects and transitions in After Effects, sound editing and processing in Premiere Pro.";
+            break;
+        case 'https://www.youtube.com/watch?v=F-Yz_ZEid8Q':
+            videoTitle.innerText = "Sagami";
+            videoDescription.innerText = "Commercial for a Japanese condom.\n\nKey Techniques: Transitions, motion matching, chroma keying, color correction, sound design, and mixing.";
+            break;
+        default:
+            videoTitle.innerText = "Watch this video"; // Use default case for unmatched URLs
+            videoDescription.innerText = "A brief description of this video.";
+            break;
+    }
 
     // Show the modal
     modal.style.display = 'block';
-    document.body.classList.add('modal-open'); // Add class to prevent scrolling
+    document.body.classList.add('modal-open'); // Prevent scrolling
 }
 
 function closeModal(event) {
@@ -219,7 +224,7 @@ function closeModal(event) {
 
     // Hide the modal
     modal.style.display = 'none';
-    document.body.classList.remove('modal-open'); // Remove class to allow scrolling
+    document.body.classList.remove('modal-open'); // Allow scrolling again
 }
 
 
