@@ -334,6 +334,7 @@ section {
 }
 
 
+
 #skills {
     position: relative;
     overflow: hidden; /* Ensures icons don't overflow outside of the section */
@@ -365,7 +366,6 @@ section {
     filter: brightness(1);
 }
 
-
 .skills-title {
     position: relative; /* Ensures the text is positioned properly */
     color: white; /* Change text color to white for better contrast */
@@ -376,22 +376,19 @@ section {
     font-weight: 300; 
 }
 
-.skills-container {
-    position: relative; /* To contain absolutely positioned elements */
-}
-
 .floating-icon {
     position: absolute;
-    width: 80px; /* Adjust the size of the icons */
-    height: 80px;
-    transition: transform 0.2s ease-out; /* Smooth movement */
-    z-index: 2;
+    width: 70px; /* Adjust the size of the icons */
+    height: 70px;
+    transform: translateY(100px); /* Start below their final position */
 }
+
+
 
 .floating-icon img {
     width: 100%; /* Ensures the image fills the parent div */
     height: auto; /* Maintains the aspect ratio */
-     z-index: 2;
+    z-index: 2;
     max-width: 80px; /* Ensures the image does not exceed the set size */
 }
 
@@ -478,6 +475,8 @@ section {
 
 
 
+
+
 /* Showreel Section */
 #showreel {
     display: flex;
@@ -502,6 +501,12 @@ section {
     max-height: 100%; /* Prevents the video from exceeding the container height */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Change properties on hover */
+.showreel-video:hover {
+    transform: scale(1.03); /* Scale the video slightly larger */
+}
+
 
   /* Adjusting spacing between sections */
   #skills, #projects {
@@ -587,13 +592,13 @@ h1 {
     z-index: 0;
     width: 40%;
     height: auto;
-    animation: float 7s ease-in-out infinite;
-    transition: transform 0.4s ease, filter 0.4s ease;
+
     cursor: pointer;
 }
 
 .video:hover {
-    filter: brightness(1.7);
+    transform: scale(1.05); /* Increases the size by 10% */
+    transition: transform 0.5s ease, filter 0.3s ease; 
 }
 
 /* Keyframe animation for floating effect */
@@ -603,78 +608,41 @@ h1 {
     100% { transform: translateY(0); }
 }
 
-/* Video placement refinements */
-.video1 {
-    width: 45%;
-    margin-top: 80px;
-}
-
-.video2 {
-    width: 45%;
-    margin-top: -10px;
-}
-
-.video3 {
-    width: 40%; /* Keep a balanced size for experimental video */
-    height: auto;
-    position: relative; /* To position the title over it */
-}
-
-/* Experimental title positioning */
-.experimental-title {
-    position: absolute;
-    top: 0%;
-    transform: translateY(-50%); /* Perfect vertical centering */
-    font-size: 40px; /* Slightly smaller to fit nicely */
-    z-index: 2; /* Ensure it is above the video */
-}
-
-/* Video3 container adjustments to place the video on the right */
-.video3-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Aligns the video to the right */
-    align-items: center;
-    margin-bottom: 50px; /* Add space below */
-    margin-top: 70px;
-}
-
 /* Video container for ads section */
 .video-container-ads {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    perspective: 1500px; /* Increased perspective for more depth */
     width: 100%;
-    gap: 20px;
-    align-items: flex-start;
-    justify-content: flex-start; /* Align items to the left */
-    flex-wrap: wrap; /* Ensure the videos wrap if there's not enough space */
-    margin-top: 50px; /* Space between previous section */
-    margin-bottom: 0px; /* Ensure space before the contact section */
+    height: 400px;
 }
 
-/* Commercial video styling */
-.video4 {
-    width: 45%;
-    height: auto;
-    left: auto;
-}
-
-/* Walkinparis1 (right) */
-.video5 {
-    width: 45%; /* Same size as video4 */
-    height: auto;
-    margin-left: auto; /* Push video5 to the right side */
-    margin-top: -80px;
-}
-
-/* Walkinparis2 (below video5) */
+/* Billboard-style video styling */
 .video6 {
-    width: 45%; /* Same width as video5 */
+    width: 80%; /* Large width for billboard effect */
     height: auto;
-    margin-left: auto;
-    margin-top: -80px; /* Adds space between video5 and video6 */
+    position: relative;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transform-origin: center; /* Rotate from the center for 3D effect */
+    transform: rotateY(-10deg) translateZ(0); /* Strong horizontal tilt for billboard effect */
+    z-index: 2; /* Default layering */
 }
+
+/* Center video6 within the container */
+.video6 {
+    top: auto; /* Reset positioning */
+    right: auto;
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Hover effect to make video6 more prominent */
+.video6:hover {
+    transform: rotateY(0deg) scale(1.05); /* Face front and slightly enlarge */
+}
+
 
 body.modal-open {
     overflow: hidden; /* Prevents scrolling */

@@ -14,7 +14,7 @@ document.addEventListener('mousemove', (event) => {
 
     // Calculate the angle and distance between the mouse and the eye's center
     const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
-    const distance = Math.min(eyeRect.width / 3, Math.hypot(mouseX - eyeCenterX, mouseY - eyeCenterY));
+    const distance = Math.min(eyeRect.width / 3, Math.hypot(mouseX - eyeCenterX, mouseX - eyeCenterY));
 
     // Calculate the new iris position
     const irisX = Math.cos(angle) * distance;
@@ -56,9 +56,6 @@ if (isTouchDevice()) {
     setInterval(moveIrisRandomly, 2000); // Move the iris randomly every 2 seconds
 }
 
-
-
-
 // Select the dive-in element
 const diveIn = document.getElementById('diveIn');
 
@@ -73,27 +70,7 @@ function scrollDown() {
 // Event listener for click events
 diveIn.addEventListener('click', scrollDown);
 
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const skillsLink = document.querySelector('a[href="#skills"]'); // Update the selector as needed
-    skillsLink.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default anchor click behavior
-
-        const skillsSection = document.getElementById('skills');
-        const offset = 150; // Adjust this value for how much to scroll up from the section
-
-        const topPosition = skillsSection.getBoundingClientRect().top + window.scrollY - offset;
-
-        window.scrollTo({
-            top: topPosition,
-            behavior: 'smooth' // Smooth scroll effect
-        });
-    });
-});
-
-
+// Function to toggle icon name
 function toggleIconName(iconName) {
     const icons = document.querySelectorAll('.floating-icon');
     icons.forEach(icon => {
@@ -121,6 +98,9 @@ icons.forEach(icon => {
 
 
 
+
+
+// DOMContentLoaded event to set up the menu toggle and skills animations
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle'); // Hamburger button
     const menuLinks = document.querySelector('.menu-links'); // Menu links
@@ -144,14 +124,22 @@ document.addEventListener('DOMContentLoaded', () => {
             menuLinks.classList.remove('open'); // Close the menu if clicked outside
         }
     });
+
+    // Skills animation on scroll
+    const skillIcons = document.querySelectorAll('.floating-icon');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show'); // Add the 'show' class to start the animation
+            }
+        });
+    });
+
+    skillIcons.forEach(icon => {
+        observer.observe(icon); // Observe each icon for intersection
+    });
 });
-
-
-
-
-
-
-
 
 // JavaScript function to toggle menu visibility
 function toggleMenu() {
@@ -165,8 +153,6 @@ document.querySelectorAll('.menu-links a').forEach(link => {
         toggleMenu(); // Close the menu when a link is clicked
     });
 });
-
-
 
 function playVideo(videoUrl) {
     const modal = document.getElementById('video-modal');
@@ -226,6 +212,3 @@ function closeModal(event) {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open'); // Allow scrolling again
 }
-
-
-

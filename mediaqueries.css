@@ -84,7 +84,7 @@
   }
 
   .skills-container {
-    margin-top: 200px;
+    margin-top: 150px;
   }
 
 
@@ -95,8 +95,8 @@
   }
 
   .floating-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 
   .icon-1 { top: 150%; left: 12%; filter: drop-shadow(0 0 20px rgba(109, 177, 255, 0.682)); }
